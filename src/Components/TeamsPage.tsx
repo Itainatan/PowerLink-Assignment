@@ -1,14 +1,19 @@
 // Imports
-import React, { useEffect, useState, FunctionComponent } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import axios from 'axios'
+import TeamsTable from './TeamsTable'
 
+
+// Consts
 const MODE = {
     LOADING: 'loading',
     DEFAULT: 'default',
     ERROR: 'error'
 }
 
-const Teams = () => {
+const API = 'http://api.football-data.org/v2/competitions/2021/teams'
+
+const TeamsPage = () => {
     const [teams, setTeams] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)
 
@@ -29,7 +34,7 @@ const Teams = () => {
         };
 
         try {
-            const { data } = await axios.get('http://api.football-data.org/v2/competitions/2021/teams', params)
+            const { data } = await axios.get(API, params)
             if (data.teams) {
                 setTeams(data.teams)
                 setMode(MODE.DEFAULT)
@@ -50,11 +55,7 @@ const Teams = () => {
                     </div>
                 )
             case MODE.DEFAULT:
-                return (
-                    <div>
-                        default
-                    </div>
-                )
+                return <TeamsTable teams={teams} />
             case MODE.LOADING:
                 return (
                     <div>
@@ -64,7 +65,7 @@ const Teams = () => {
             default:
                 return (
                     <div>
-                        DEFAULT
+                        fd
                     </div>
                 )
         }
@@ -74,4 +75,4 @@ const Teams = () => {
 
 }
 
-export default Teams
+export default TeamsPage

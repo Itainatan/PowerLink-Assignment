@@ -1,47 +1,36 @@
 // Imports
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from "react"
+import { Square, AStyle } from "../Styles/Helpers"
 
 
+// Interfaces
+interface Team {
+    name: string,
+    founded: string,
+    address: string,
+    id: string
+}
 
-const Team = () => {
-    const [team, setTeam] = useState([])
-
-
-    // Lifecycle
-    useEffect(() => {
-        fetchTeam()
-    }, [])
-
-
-    // Actions
-    const fetchTeam = async () => {
-        let params = {
-            headers: {
-                "X-Auth-Token": "104b49bdab0c4562960e71ae37c1dd33",
-                "content-type": "application/json"
-            }
-        };
-
-        try {
-            const { data } = await axios.get('http://api.football-data.org/v2/teams/57', params)
-            console.log(data);
-            data.teams && setTeam(data.teams)
-        } catch (error) {
-            console.log(error)
-        }
-    };
+interface Props {
+    team: Team
+}
 
 
-    // Rendering
+// Rendering
+const Team = (props:Props) => {
+
+    const { team } = props
+
     return (
-        <div>
-            team
-        </div>
+        <>
+            <Square>{team.name}</Square>
+            <Square>{team.founded ? team.founded : '---'}</Square>
+            <Square>{team.address ? team.address : '---'}</Square>
+            <Square>
+                <AStyle href={`/team/${team.id}`}> view team </AStyle>
+            </Square>
+        </>
     )
 }
 
 export default Team
-
-
-

@@ -1,8 +1,8 @@
 // Imports
 import React from "react"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
-import Teams from "./Components/Teams"
-import Team from "./Components/Team"
+import TeamsPage from "./Components/TeamsPage"
+import TeamPage from "./Components/TeamPage"
 
 
 export const Routes = () => {
@@ -13,8 +13,8 @@ export const Routes = () => {
         <Router>
             <Switch>
                 <Route exact path="/" render={() => <Redirect to="/teams" />} />
-                <Route exact path="/teams" component={Teams} />
-                <Route exact path="/teams/:id" component={Team} />
+                <Route exact path="/teams" component={TeamsPage} />
+                <Route exact path="/teams/:id" component={TeamPage} />
             </Switch>
         </Router>
     );
