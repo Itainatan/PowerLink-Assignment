@@ -1,6 +1,6 @@
 // Import
 import React from "react"
-import Team from "./Team"
+import TeamRow from "./TeamRow"
 import TableHeader from "./TableHeader"
 
 // Interfaces
@@ -16,21 +16,25 @@ interface Props {
 }
 
 
+// Consts
+const titles = ['Name', 'Founded', 'Address']
+
+
 // Rendering
-const TeamsTable = (props:Props) => {
+const TeamsTable = (props: Props) => {
 
     const showTeams = () =>
         props.teams.map((team, index) =>
             <tbody key={index}>
                 <tr>
-                    <Team key={index} team={team} />
+                    <TeamRow key={index} team={team} />
                 </tr>
             </tbody>
         );
 
     return (
         <table>
-            <TableHeader />
+            <TableHeader titles={titles} />
             {showTeams()}
         </table>
     )

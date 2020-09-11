@@ -3,16 +3,18 @@ import React from "react"
 import { SquareHedear } from "../Styles/Helpers"
 
 
-// Consts
-const titles = ['Name', 'Founded', 'Address']
+// Interfaces
+interface Props {
+    titles: Array<string>
+}
 
 
 // Rendering
-const TableHeader = () =>
+const TableHeader = (props: Props) =>
     <tbody>
         <tr>
             {
-                titles.map((value, index) =>
+                props.titles.map((value, index) =>
                     <SquareHedear key={index}>{value}</SquareHedear>
                 )
             }

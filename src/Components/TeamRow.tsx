@@ -17,7 +17,7 @@ interface Props {
 
 
 // Rendering
-const Team = (props:Props) => {
+const TeamRow = (props:Props) => {
 
     const { team } = props
 
@@ -27,10 +27,10 @@ const Team = (props:Props) => {
             <Square>{team.founded ? team.founded : '---'}</Square>
             <Square>{team.address ? team.address : '---'}</Square>
             <Square>
-                <AStyle href={`/team/${team.id}`}> view team </AStyle>
+                <AStyle href={`/teams/${team.id}`}> view team </AStyle>
             </Square>
         </>
     )
 }
 
-export default Team
+export default TeamRow

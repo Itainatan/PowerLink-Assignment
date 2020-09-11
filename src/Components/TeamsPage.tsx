@@ -1,7 +1,9 @@
 // Imports
-import React, { useEffect, useState, Fragment } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import TeamsTable from './TeamsTable'
+import { Container } from '../Styles/Helpers'
+import { Loader } from '../Styles/Loader'
 
 
 // Consts
@@ -55,13 +57,13 @@ const TeamsPage = () => {
                     </div>
                 )
             case MODE.DEFAULT:
-                return <TeamsTable teams={teams} />
-            case MODE.LOADING:
                 return (
-                    <div>
-                        loading
-                    </div>
+                    <Container>
+                        <TeamsTable teams={teams} />
+                    </Container>
                 )
+            case MODE.LOADING:
+                return <Loader />
             default:
                 return (
                     <div>

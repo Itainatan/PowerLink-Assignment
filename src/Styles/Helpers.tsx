@@ -24,3 +24,8 @@ export const AStyle = styled.a`
   padding: 5px;
   }
 `
+
+export const Container = styled.div`
+  margin: 20px;
+  }
+`
