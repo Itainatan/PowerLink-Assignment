@@ -13,7 +13,7 @@ const MODE = {
     ERROR: 'error'
 }
 
-const API = 'http://api.football-data.org/v2/competitions/2021/teams'
+const API = 'https://api.football-data.org/v2/competitions/2021/teams'
 
 const TeamsPage = () => {
     const [teams, setTeams] = useState([])
