@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import TeamDetails from './TeamDetails'
+import { Container } from '../Styles/Helpers'
+import { Loader } from '../Styles/Loader'
 
 
 // Consts
@@ -11,7 +13,7 @@ const MODE = {
     ERROR: 'error'
 }
 
-const API = 'http://api.football-data.org/v2/teams/57'
+const API = 'https://api.football-data.org/v2/teams/57'
 
 const TeamPage = () => {
     const [team, setTeam] = useState([])
@@ -31,7 +33,7 @@ const TeamPage = () => {
                 "X-Auth-Token": "104b49bdab0c4562960e71ae37c1dd33",
                 "content-type": "application/json"
             }
-        };
+        }
 
         try {
             const { data } = await axios.get(API, params)
@@ -40,7 +42,7 @@ const TeamPage = () => {
         } catch (error) {
             setMode(MODE.ERROR)
         }
-    };
+    }
 
 
     // Rendring
@@ -53,13 +55,13 @@ const TeamPage = () => {
                     </div>
                 )
             case MODE.DEFAULT:
-                return <TeamDetails team={team} />
-            case MODE.LOADING:
                 return (
-                    <div>
-                        loading
-                    </div>
+                    <Container>
+                        <TeamDetails team={team} />
+                    </Container>
                 )
+            case MODE.LOADING:
+                return <Loader />
             default:
                 return (
                     <div>
