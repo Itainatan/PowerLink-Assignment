@@ -4,6 +4,7 @@ import axios from 'axios'
 import TeamsTable from './TeamsTable'
 import { Container } from '../Styles/Helpers'
 import { Loader } from '../Styles/Loader'
+import { Params } from '../Helpers/ApiParams'
 
 
 // Consts
@@ -28,15 +29,8 @@ const TeamsPage = () => {
 
     // Actions
     const fetchTeams = async () => {
-        let params = {
-            headers: {
-                "X-Auth-Token": "104b49bdab0c4562960e71ae37c1dd33",
-                "content-type": "application/json"
-            }
-        }
-
         try {
-            const { data } = await axios.get(API, params)
+            const { data } = await axios.get(API, Params)
             if (data.teams) {
                 setTeams(data.teams)
                 setMode(MODE.DEFAULT)
