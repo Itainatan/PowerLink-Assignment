@@ -2,6 +2,7 @@
 import styled from "styled-components";
 
 
+// Consts
 export const NavBarStyle = styled.div`
   display: flex;
   justify-content: space-between;

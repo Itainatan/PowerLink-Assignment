@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import TeamDetails from './TeamDetails'
-import { Container } from '../Styles/Helpers'
-import { Loader } from '../Styles/Loader'
-import { Params } from '../Helpers/ApiParams'
+import { Container } from '../../Styles/Helpers'
+import { Loader } from '../../Styles/Loader'
+import { Params } from '../../Helpers/ApiParams'
 
 
 // Consts
@@ -16,6 +16,8 @@ const MODE = {
 
 const API = 'https://api.football-data.org/v2/teams/57'
 
+
+// Component
 const TeamPage = () => {
     const [team, setTeam] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)

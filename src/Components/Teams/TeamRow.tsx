@@ -1,6 +1,6 @@
 // Imports
 import React from "react"
-import { Square, AStyle } from "../Styles/Helpers"
+import { Square, AStyle } from "../../Styles/Helpers"
 
 
 // Interfaces
@@ -16,11 +16,12 @@ interface Props {
 }
 
 
-// Rendering
+// Component
 const TeamRow = (props:Props) => {
 
     const { team } = props
 
+// Rendering
     return (
         <>
             <Square>{team.name}</Square>

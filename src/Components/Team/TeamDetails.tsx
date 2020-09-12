@@ -8,11 +8,12 @@ interface Props {
 }
 
 
-// Rendering
+// Component
 const TeamDetails = (props: Props) => {
 
     const { team } = props
-
+    
+// Rendering
     return (
         <div>
             <h1> {team.name} </h1>

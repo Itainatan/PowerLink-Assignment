@@ -1,7 +1,7 @@
 // Imports
 import React, { Fragment } from 'react'
 import { Routes } from "./Routes"
-import NavBar from "./Components/NavBar"
+import NavBar from "./Helpers/NavBar"
 
 const App = () =>
   <Fragment>

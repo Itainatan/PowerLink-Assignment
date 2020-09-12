@@ -1,8 +1,8 @@
 // Imports
 import React from "react"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
-import TeamsPage from "./Components/TeamsPage"
-import TeamPage from "./Components/TeamPage"
+import TeamsPage from "./Components/Teams/TeamsPage"
+import TeamPage from "./Components/Team/TeamPage"
 
 
 export const Routes = () => {

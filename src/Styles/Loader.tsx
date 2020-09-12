@@ -6,8 +6,8 @@ import styled from "styled-components";
 export const Loader = styled.div`
 border: 16px solid #f3f3f3;
 border-radius: 50%;
-border-top: 16px solid blue;
-border-bottom: 16px solid blue;
+border-top: 16px solid #FF007F;
+border-bottom: 16px solid #FF007F;
 width: 120px;
 height: 120px;
 -webkit-animation: spin 2s linear infinite;

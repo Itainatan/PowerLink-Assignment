@@ -3,7 +3,7 @@ import React from "react"
 import { NavBarStyle } from "../Styles/NavBarStyle"
 
 
-// Rendering
+// Component
 const Navbar = () =>
     <NavBarStyle>
         Football Teams

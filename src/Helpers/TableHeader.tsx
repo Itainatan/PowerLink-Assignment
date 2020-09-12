@@ -9,7 +9,7 @@ interface Props {
 }
 
 
-// Rendering
+// Component
 const TableHeader = (props: Props) =>
     <tbody>
         <tr>
