@@ -1,6 +1,6 @@
 ## Football Data Site ⚽
 
-👉🏽 [Demo](https://powerlink-assignment.netlify.app/teams)
+👉🏽 [Demo](https://powerlink-assignment.netlify.app)
 
 🌟 Football Data site is an app that give you the data about football teams from England. 
 
