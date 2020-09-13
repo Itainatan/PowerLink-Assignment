@@ -18,10 +18,7 @@ export const SquareHedear = styled(Square)`
   }
 `
 
-export const AStyle = styled.a`
-  color: #FF007F; 
-  margin-right: 5px;
-  padding: 5px;
+export const TRStyle = styled.tr`
   cursor: pointer
   }
 `

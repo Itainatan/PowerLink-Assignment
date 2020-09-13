@@ -1,21 +1,13 @@
 // Imports
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import TeamDetails from './TeamDetails'
 import { Container } from '../../Styles/Helpers'
 import { Loader } from '../../Styles/Loader'
-import { Params } from '../../Helpers/ApiParams'
-import { useLocation } from 'react-router-dom'
-
-
-// Consts
-const MODE = {
-    LOADING: 'loading',
-    DEFAULT: 'default',
-    ERROR: 'error'
-}
-
-const API = 'https://api.football-data.org/v2/teams/'
+import { Params } from '../../Utils/ApiParams'
+import { API_TEAM } from '../../Utils/ApiPaths'
+import { MODE } from '../../Utils/Mode'
 
 
 // Component - this component is to show the page of uniqe team 
@@ -25,13 +17,14 @@ const TeamPage = () => {
     const pathParams = useLocation().pathname.split('/')
     const id = pathParams[2] ? pathParams[2] : ''
 
+
     // Lifecycle
     useEffect(() => {
 
         // Actions
         const fetchTeam = async () => {
             try {
-                const { data } = await axios.get(API + id, Params)
+                const { data } = await axios.get(API_TEAM + id, Params)
                 setTeam(data)
                 setMode(MODE.DEFAULT)
             } catch (error) {

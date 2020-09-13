@@ -1,7 +1,9 @@
 // Imports
 import React from "react"
+import { useHistory } from "react-router-dom"
 import TeamRow from "./TeamRow"
 import TableHeader from "../../Helpers/TableHeader"
+import { TRStyle } from "../../Styles/Helpers"
 
 
 // Interfaces
@@ -24,12 +26,14 @@ const titles = ['Name', 'Founded', 'Address']
 // Component - this component show the teams table
 const TeamsTable = (props: Props) => {
 
+    const history = useHistory()
+
     const showTeams = () =>
-        props.teams.map((team, index) =>
-            <tbody key={index}>
-                <tr>
+        props.teams.map((team) =>
+            <tbody key={team.id}>
+                <TRStyle onClick={() => history.push(`/teams/${team.id}`)}>
                     <TeamRow team={team} />
-                </tr>
+                </TRStyle>
             </tbody>
         );
 

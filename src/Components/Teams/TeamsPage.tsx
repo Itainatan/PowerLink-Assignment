@@ -3,17 +3,9 @@ import React, { Fragment, useEffect, useState } from 'react'
 import axios from 'axios'
 import TeamsTable from './TeamsTable'
 import { Loader } from '../../Styles/Loader'
-import { Params } from '../../Helpers/ApiParams'
-
-
-// Consts
-const MODE = {
-    LOADING: 'loading',
-    DEFAULT: 'default',
-    ERROR: 'error'
-}
-
-const API = 'https://api.football-data.org/v2/competitions/2021/teams'
+import { Params } from '../../Utils/ApiParams'
+import { API_TEAMS } from '../../Utils/ApiPaths'
+import { MODE } from '../../Utils/Mode'
 
 
 // Component - this component is to show the page of teams list table 
@@ -31,7 +23,7 @@ const TeamsPage = () => {
     // Actions
     const fetchTeams = async () => {
         try {
-            const { data } = await axios.get(API, Params)
+            const { data } = await axios.get(API_TEAMS, Params)
             if (data.teams) {
                 setTeams(data.teams)
                 setMode(MODE.DEFAULT)

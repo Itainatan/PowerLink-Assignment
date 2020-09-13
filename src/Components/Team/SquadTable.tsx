@@ -7,7 +7,8 @@ import TableHeader from "../../Helpers/TableHeader"
 // Interfaces
 interface Player {
     name: string,
-    position: string
+    position: string,
+    id: string
 }
 
 interface Props {
@@ -23,8 +24,8 @@ const titles = ['Name', 'Position']
 const SquadTable = (props: Props) => {
 
     const showPlayers = () =>
-        props.squad.map((player, index) =>
-            <tbody key={index}>
+        props.squad.map((player) =>
+            <tbody key={player.id}>
                 <tr>
                     <PlayerRow player={player} />
                 </tr>

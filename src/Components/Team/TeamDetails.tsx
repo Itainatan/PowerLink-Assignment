@@ -1,10 +1,10 @@
 // Imports
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import SquadTable from './SquadTable'
 import '../../App.css'
 
 
-// Interfaces
 interface Props {
     team: any
 }
@@ -14,6 +14,7 @@ interface Props {
 const TeamDetails = (props: Props) => {
 
     const { team } = props
+    const history = useHistory()
 
 
     // Rendering
@@ -38,12 +39,10 @@ const TeamDetails = (props: Props) => {
                 <h3> Squad: </h3>
                 <SquadTable squad={team.squad} />
             </div>
+            <button onClick={() => history.push('/teams/')}> back </button>
         </div>
 
     )
 }
-
-
-
 
 export default TeamDetails
