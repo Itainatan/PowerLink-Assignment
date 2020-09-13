@@ -4,9 +4,9 @@ import { NavBarStyle } from "../Styles/NavBarStyle"
 
 
 // Component
-const Navbar = () =>
+const PlaceHolder = () =>
     <NavBarStyle>
         Football Data
     </NavBarStyle>
 
-export default Navbar
+export default PlaceHolder

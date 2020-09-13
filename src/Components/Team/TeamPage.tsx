@@ -25,28 +25,28 @@ const TeamPage = (props: any) => {
 
     // Lifecycle
     useEffect(() => {
-        fetchTeams()
-    }, [])
 
+        // Actions
+        const fetchTeam = async () => {
+            const pathParams = window.location.pathname.split('/')
 
-    // Actions
-    const fetchTeams = async () => {
-        const pathParams = props.history.location.pathname.split('/')
+            if (pathParams[2]) {
+                const id = pathParams[2]
 
-        if (pathParams[2]) {
-            const id = pathParams[2]
-
-            try {
-                const { data } = await axios.get(API + id, Params)
-                setTeam(data)
-                setMode(MODE.DEFAULT)
-            } catch (error) {
+                try {
+                    const { data } = await axios.get(API + id, Params)
+                    setTeam(data)
+                    setMode(MODE.DEFAULT)
+                } catch (error) {
+                    setMode(MODE.ERROR)
+                }
+            } else {
                 setMode(MODE.ERROR)
             }
-        } else {
-            setMode(MODE.ERROR)
         }
-    }
+
+        fetchTeam()
+    }, [])
 
 
     // Rendring
