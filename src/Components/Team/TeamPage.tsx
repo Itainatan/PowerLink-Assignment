@@ -5,6 +5,7 @@ import TeamDetails from './TeamDetails'
 import { Container } from '../../Styles/Helpers'
 import { Loader } from '../../Styles/Loader'
 import { Params } from '../../Helpers/ApiParams'
+import { useLocation } from 'react-router-dom'
 
 
 // Consts
@@ -18,19 +19,17 @@ const API = 'https://api.football-data.org/v2/teams/'
 
 
 // Component
-const TeamPage = (props: any) => {
+const TeamPage = () => {
     const [team, setTeam] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)
-
+    const pathParams = useLocation().pathname.split('/')
+    const id = pathParams[2] ? pathParams[2] : ''
 
     // Lifecycle
     useEffect(() => {
 
         // Actions
         const fetchTeam = async () => {
-            const pathParams = props.location.pathname.split('/')
-            const id = pathParams[2] ? pathParams[2] : ''
-
             try {
                 const { data } = await axios.get(API + id, Params)
                 setTeam(data)
@@ -42,10 +41,7 @@ const TeamPage = (props: any) => {
         }
 
         fetchTeam()
-    }, [props])
-
-
-
+    }, [id])
 
 
     // Rendring
@@ -54,7 +50,7 @@ const TeamPage = (props: any) => {
             case MODE.ERROR:
                 return (
                     <div>
-                        error
+                        error, please check if the path include a valid id team or try refresh the page again.
                     </div>
                 )
             case MODE.DEFAULT:
