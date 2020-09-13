@@ -22,6 +22,7 @@ export const AStyle = styled.a`
   color: #FF007F; 
   margin-right: 5px;
   padding: 5px;
+  cursor: pointer
   }
 `
 

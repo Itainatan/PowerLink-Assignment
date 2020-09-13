@@ -1,5 +1,6 @@
 // Imports
 import React from "react"
+import { useHistory } from "react-router-dom"
 import { Square, AStyle } from "../../Styles/Helpers"
 
 
@@ -20,6 +21,7 @@ interface Props {
 const TeamRow = (props:Props) => {
 
     const { team } = props
+    const History = useHistory()
 
 // Rendering
     return (
@@ -28,7 +30,7 @@ const TeamRow = (props:Props) => {
             <Square>{team.founded ? team.founded : '---'}</Square>
             <Square>{team.address ? team.address : '---'}</Square>
             <Square>
-                <AStyle href={`/teams/${team.id}`}> view team </AStyle>
+                <AStyle onClick={() => History.push(`/teams/${team.id}`)}> view team </AStyle>
             </Square>
         </>
     )
