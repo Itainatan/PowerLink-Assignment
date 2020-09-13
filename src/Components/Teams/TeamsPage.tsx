@@ -40,7 +40,7 @@ const TeamsPage = () => {
             case MODE.ERROR:
                 return (
                     <div>
-                        error, please check if the path include a valid id team or try refresh the page again.
+                        error, please try to refresh the page again.
                     </div>
                 )
             case MODE.DEFAULT:
