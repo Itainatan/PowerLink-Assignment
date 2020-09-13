@@ -15,8 +15,9 @@ const TeamDetails = (props: Props) => {
     
 // Rendering
     return (
-        <div>
+        <div style={{display: 'flex'}}>
             <h1> {team.name} </h1>
+            <img alt='' src={team.crestUrl} width="130px" height="68px" />
         </div>
     )
 }
