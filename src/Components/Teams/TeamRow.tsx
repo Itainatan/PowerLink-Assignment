@@ -17,13 +17,14 @@ interface Props {
 }
 
 
-// Component
-const TeamRow = (props:Props) => {
+// Component - this component show the squrares information for the teams table
+const TeamRow = (props: Props) => {
 
     const { team } = props
     const History = useHistory()
 
-// Rendering
+
+    // Rendering
     return (
         <>
             <Square>{team.name}</Square>

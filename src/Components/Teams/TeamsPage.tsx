@@ -16,7 +16,7 @@ const MODE = {
 const API = 'https://api.football-data.org/v2/competitions/2021/teams'
 
 
-// Component
+// Component - this component is to show the page of teams list table 
 const TeamsPage = () => {
     const [teams, setTeams] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)
@@ -64,7 +64,6 @@ const TeamsPage = () => {
     }
 
     return renderTeams()
-
 }
 
 export default TeamsPage

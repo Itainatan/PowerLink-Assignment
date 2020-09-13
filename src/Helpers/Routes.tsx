@@ -5,6 +5,7 @@ import TeamsPage from "../Components/Teams/TeamsPage"
 import TeamPage from "../Components/Team/TeamPage"
 
 
+//Const - return the routes for app
 export const Routes = () => {
 
 

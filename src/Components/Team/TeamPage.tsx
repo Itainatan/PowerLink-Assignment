@@ -18,20 +18,18 @@ const MODE = {
 const API = 'https://api.football-data.org/v2/teams/'
 
 
-// Component
+// Component - this component is to show the page of uniqe team 
 const TeamPage = () => {
     const [team, setTeam] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)
-        const pathParams = useLocation().pathname.split('/')
-        const id = pathParams[2] ? pathParams[2] : ''
+    const pathParams = useLocation().pathname.split('/')
+    const id = pathParams[2] ? pathParams[2] : ''
 
     // Lifecycle
     useEffect(() => {
 
         // Actions
         const fetchTeam = async () => {
-
-
             try {
                 const { data } = await axios.get(API + id, Params)
                 setTeam(data)
@@ -67,7 +65,6 @@ const TeamPage = () => {
     }
 
     return renderTeam()
-
 }
 
 export default TeamPage

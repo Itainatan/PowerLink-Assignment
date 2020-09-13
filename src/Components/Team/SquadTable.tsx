@@ -1,7 +1,8 @@
-// Import
+// Imports
 import React from "react"
 import PlayerRow from "./PlayerRow"
 import TableHeader from "../../Helpers/TableHeader"
+
 
 // Interfaces
 interface Player {
@@ -18,7 +19,7 @@ interface Props {
 const titles = ['Name', 'Position']
 
 
-// Component
+// Component - this component show the players table
 const SquadTable = (props: Props) => {
 
     const showPlayers = () =>
@@ -29,6 +30,7 @@ const SquadTable = (props: Props) => {
                 </tr>
             </tbody>
         );
+
 
     // Rendering
     return (

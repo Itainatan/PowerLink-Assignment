@@ -14,10 +14,11 @@ interface Props {
 }
 
 
-// Component
+// Component - this component show the squrares information for the players table
 const PlayerRow = (props: Props) => {
 
     const { player } = props
+
 
     // Rendering
     return (

@@ -1,4 +1,4 @@
-// Import
+// Imports
 import React from "react"
 import TeamRow from "./TeamRow"
 import TableHeader from "../../Helpers/TableHeader"
@@ -20,7 +20,7 @@ interface Props {
 const titles = ['Name', 'Founded', 'Address']
 
 
-// Component
+// Component - this component show the teams table
 const TeamsTable = (props: Props) => {
 
     const showTeams = () =>
@@ -32,7 +32,8 @@ const TeamsTable = (props: Props) => {
             </tbody>
         );
 
-// Rendering
+
+    // Rendering
     return (
         <table>
             <TableHeader titles={titles} />

@@ -1,4 +1,4 @@
-// Import
+// Imports
 import React from "react"
 import { SquareHedear } from "../Styles/Helpers"
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 
-// Component
+// Component - display the subjects for the tables shows in the app
 const TableHeader = (props: Props) =>
     <tbody>
         <tr>

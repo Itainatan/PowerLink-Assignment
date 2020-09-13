@@ -10,10 +10,11 @@ interface Props {
 }
 
 
-// Component
+// Component - this component show the information about the team
 const TeamDetails = (props: Props) => {
 
     const { team } = props
+
 
     // Rendering
     return (
