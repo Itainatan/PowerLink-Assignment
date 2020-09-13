@@ -1,11 +1,11 @@
 // Imports
-import React, { useState } from 'react'
-// import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import TeamDetails from './TeamDetails'
 import { Container } from '../../Styles/Helpers'
 import { Loader } from '../../Styles/Loader'
-// import { Params } from '../../Helpers/ApiParams'
-// import { useLocation } from 'react-router-dom'
+import { Params } from '../../Helpers/ApiParams'
+import { useLocation } from 'react-router-dom'
 
 
 // Consts
@@ -15,33 +15,35 @@ const MODE = {
     ERROR: 'error'
 }
 
-// const API = 'https://api.football-data.org/v2/teams/'
+const API = 'https://api.football-data.org/v2/teams/'
 
 
 // Component
 const TeamPage = () => {
-    const [team] = useState([])
-    const [mode] = useState(MODE.LOADING)
-    // const pathParams = useLocation().pathname.split('/')
-    // const id = pathParams[2] ? pathParams[2] : ''
+    const [team, setTeam] = useState([])
+    const [mode, setMode] = useState(MODE.LOADING)
+        const pathParams = useLocation().pathname.split('/')
+        const id = pathParams[2] ? pathParams[2] : ''
 
-    // // Lifecycle
-    // useEffect(() => {
+    // Lifecycle
+    useEffect(() => {
 
-    //     // Actions
-    //     const fetchTeam = async () => {
-    //         try {
-    //             const { data } = await axios.get(API + id, Params)
-    //             setTeam(data)
-    //             setMode(MODE.DEFAULT)
-    //         } catch (error) {
-    //             setMode(MODE.ERROR)
-    //         }
+        // Actions
+        const fetchTeam = async () => {
 
-    //     }
 
-    //     fetchTeam()
-    // }, [id])
+            try {
+                const { data } = await axios.get(API + id, Params)
+                setTeam(data)
+                setMode(MODE.DEFAULT)
+            } catch (error) {
+                setMode(MODE.ERROR)
+            }
+
+        }
+
+        fetchTeam()
+    }, [id])
 
 
     // Rendring
