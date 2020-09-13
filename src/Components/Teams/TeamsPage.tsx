@@ -1,8 +1,7 @@
 // Imports
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import axios from 'axios'
 import TeamsTable from './TeamsTable'
-import { Container } from '../../Styles/Helpers'
 import { Loader } from '../../Styles/Loader'
 import { Params } from '../../Helpers/ApiParams'
 
@@ -54,10 +53,10 @@ const TeamsPage = () => {
                 )
             case MODE.DEFAULT:
                 return (
-                    <Container>
+                    <Fragment>
                         <h1> List of all clubs from the first English league </h1>
                         <TeamsTable teams={teams} />
-                    </Container>
+                    </Fragment>
                 )
             default:
                 return <Loader />
