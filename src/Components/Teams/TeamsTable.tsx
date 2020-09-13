@@ -3,6 +3,7 @@ import React from "react"
 import TeamRow from "./TeamRow"
 import TableHeader from "../../Helpers/TableHeader"
 
+
 // Interfaces
 interface TeamType {
     name: string,
@@ -27,7 +28,7 @@ const TeamsTable = (props: Props) => {
         props.teams.map((team, index) =>
             <tbody key={index}>
                 <tr>
-                    <TeamRow key={index} team={team} />
+                    <TeamRow team={team} />
                 </tr>
             </tbody>
         );

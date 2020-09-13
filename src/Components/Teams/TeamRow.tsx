@@ -21,7 +21,7 @@ interface Props {
 const TeamRow = (props: Props) => {
 
     const { team } = props
-    const History = useHistory()
+    const history = useHistory()
 
 
     // Rendering
@@ -31,7 +31,7 @@ const TeamRow = (props: Props) => {
             <Square>{team.founded ? team.founded : '---'}</Square>
             <Square>{team.address ? team.address : '---'}</Square>
             <Square>
-                <AStyle onClick={() => History.push(`/teams/${team.id}`)}> view team </AStyle>
+                <AStyle onClick={() => history.push(`/teams/${team.id}`)}> view team </AStyle>
             </Square>
         </>
     )

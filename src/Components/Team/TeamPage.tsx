@@ -37,7 +37,6 @@ const TeamPage = () => {
             } catch (error) {
                 setMode(MODE.ERROR)
             }
-
         }
 
         fetchTeam()

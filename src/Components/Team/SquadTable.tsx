@@ -26,7 +26,7 @@ const SquadTable = (props: Props) => {
         props.squad.map((player, index) =>
             <tbody key={index}>
                 <tr>
-                    <PlayerRow key={index} player={player} />
+                    <PlayerRow player={player} />
                 </tr>
             </tbody>
         );
