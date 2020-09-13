@@ -59,8 +59,6 @@ const TeamsPage = () => {
                         <TeamsTable teams={teams} />
                     </Container>
                 )
-            case MODE.LOADING:
-                return <Loader />
             default:
                 return <Loader />
         }

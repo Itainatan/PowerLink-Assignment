@@ -18,35 +18,31 @@ const API = 'https://api.football-data.org/v2/teams/'
 
 
 // Component
-const TeamPage = (props: any) => {
+const TeamPage = () => {
     const [team, setTeam] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)
 
 
     // Lifecycle
     useEffect(() => {
-
-        // Actions
-        const fetchTeam = async () => {
-            const pathParams = window.location.pathname.split('/')
-
-            if (pathParams[2]) {
-                const id = pathParams[2]
-
-                try {
-                    const { data } = await axios.get(API + id, Params)
-                    setTeam(data)
-                    setMode(MODE.DEFAULT)
-                } catch (error) {
-                    setMode(MODE.ERROR)
-                }
-            } else {
-                setMode(MODE.ERROR)
-            }
-        }
-
         fetchTeam()
     }, [])
+
+
+    // Actions
+    const fetchTeam = async () => {
+        const pathParams = window.location.pathname.split('/')
+        const id = pathParams[2] ? pathParams[2] : ''
+
+        try {
+            const { data } = await axios.get(API + id, Params)
+            setTeam(data)
+            setMode(MODE.DEFAULT)
+        } catch (error) {
+            setMode(MODE.ERROR)
+        }
+
+    }
 
 
     // Rendring
@@ -64,8 +60,6 @@ const TeamPage = (props: any) => {
                         <TeamDetails team={team} />
                     </Container>
                 )
-            case MODE.LOADING:
-                return <Loader />
             default:
                 return <Loader />
         }
