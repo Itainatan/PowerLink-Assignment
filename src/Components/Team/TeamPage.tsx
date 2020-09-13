@@ -14,11 +14,11 @@ const MODE = {
     ERROR: 'error'
 }
 
-const API = 'https://api.football-data.org/v2/teams/57'
+const API = 'https://api.football-data.org/v2/teams/'
 
 
 // Component
-const TeamPage = () => {
+const TeamPage = (props: any) => {
     const [team, setTeam] = useState([])
     const [mode, setMode] = useState(MODE.LOADING)
 
@@ -31,11 +31,19 @@ const TeamPage = () => {
 
     // Actions
     const fetchTeams = async () => {
-        try {
-            const { data } = await axios.get(API, Params)
-            setTeam(data)
-            setMode(MODE.DEFAULT)
-        } catch (error) {
+        const pathParams = props.history.location.pathname.split('/')
+
+        if (pathParams[2]) {
+            const id = pathParams[2]
+
+            try {
+                const { data } = await axios.get(API + id, Params)
+                setTeam(data)
+                setMode(MODE.DEFAULT)
+            } catch (error) {
+                setMode(MODE.ERROR)
+            }
+        } else {
             setMode(MODE.ERROR)
         }
     }
@@ -59,11 +67,7 @@ const TeamPage = () => {
             case MODE.LOADING:
                 return <Loader />
             default:
-                return (
-                    <div>
-                        fd
-                    </div>
-                )
+                return <Loader />
         }
     }
 

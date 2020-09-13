@@ -55,17 +55,14 @@ const TeamsPage = () => {
             case MODE.DEFAULT:
                 return (
                     <Container>
+                        <h1> List of all clubs from the first English league </h1>
                         <TeamsTable teams={teams} />
                     </Container>
                 )
             case MODE.LOADING:
                 return <Loader />
             default:
-                return (
-                    <div>
-                        fd
-                    </div>
-                )
+                return <Loader />
         }
     }
 
